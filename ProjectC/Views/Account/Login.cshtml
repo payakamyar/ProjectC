@@ -1,0 +1,15 @@
+﻿@model UserLoginDTO
+@{
+
+	@if(ViewBag.Error is not null)
+	{
+		<h6>@ViewBag.Error</h6>
+	}
+	<form asp-controller="Account" asp-action="LoginPost" method="post">
+		<label asp-for="UserName">Username</label>
+		<input asp-for="UserName" type="text" />
+		<label asp-for="Password">Password</label>
+		<input asp-for="Password" type="password" />
+		<button type="submit">Login</button>
+	</form>
+}

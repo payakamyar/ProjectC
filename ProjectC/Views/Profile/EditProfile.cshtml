@@ -1,0 +1,25 @@
+﻿@model User
+@{
+	<form asp-controller="Profile" asp-action="EditUserPost" method="post">
+		
+		<label asp-for="Email">Email</label>
+		<input asp-for="Email" value="@Model.Email" type="email" />
+		<label asp-for="FirstName">First Name</label>
+		<input asp-for="FirstName" value="@Model.FirstName" type="text" />
+		<label asp-for="LastName">Last Name</label>
+		<input asp-for="LastName" value="@Model.LastName" type="text" />
+		<label asp-for="Phone">Phone</label>
+		<input asp-for="Phone" value="@Model.Phone" type="tel" />
+
+		<button type="submit">Edit User</button>
+		<span asp-validation-for="Email"></span>
+		<span asp-validation-for="FirstName"></span>
+		<span asp-validation-for="LastName"></span>
+		<span asp-validation-for="Phone"></span>
+	</form>
+
+}
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<User>
+@{
+	string Id = (User.Identity as ClaimsIdentity).FindFirst("ID").Value;
+
+	<a asp-area="Admin" asp-controller="Account" asp-action="AddUser">Add User</a>
+	<br /> <br /> <br />
+	foreach(User user in Model)
+	{
+		<pre> @user.UserName - @user.Email - @user.FirstName - @user.LastName - @user.Phone - @user.Role.RoleName </pre>
+		<a asp-area="Admin" asp-controller="Account" asp-action="EditUser" asp-route-id="@user.Id">Edit</a>
+		<a asp-area="Admin" asp-controller="Account" asp-action="ChangePassword" asp-route-id="@user.Id">Change Password</a>
+		if(Id != user.Id.ToString())
+		{
+			<a asp-area="Admin" asp-controller="Account" asp-action="DeleteUser" asp-route-id="@user.Id">Delete</a>
+		}
+		<br />
+		<br />
+	}
+
+	@for (int i = 1; i <= ViewBag.Count; i++)
+	{
+		<a asp-area="Admin" asp-controller="Account" asp-action="ManageUsers" asp-route-page="@i">@i </a>
+	}
+
+	@section Scripts{
+		<partial name="_ValidationScriptsPartial"/>
+	}
+}

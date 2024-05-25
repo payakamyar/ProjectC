@@ -1,0 +1,6 @@
+﻿@model User
+@{
+	<p>Are you sure want to delete the following user?</p>
+	<p>@Model.UserName - @Model.Email</p>
+	<a asp-area="Admin" asp-controller="Account" asp-action="DeleteUserAction" asp-route-id="@Model.Id"> Yes </a> <a asp-area="Admin" asp-controller="Account" asp-action="ManageUsers"> No </a>
+}

@@ -1,0 +1,46 @@
+﻿@model User
+@{
+
+	<form asp-area="Admin" asp-controller="Account" asp-action="AddUserPost">
+
+		<label asp-for="UserName">Username</label>
+		<input asp-for="UserName" type="text" />
+		<label asp-for="Password">Password</label>
+		<input asp-for="Password" type="password" />
+		<label asp-for="Email">Email</label>
+		<input asp-for="Email" type="email" />
+		<label asp-for="FirstName">First Name</label>
+		<input asp-for="FirstName" type="text" />
+		<label asp-for="LastName">Last Name</label>
+		<input asp-for="LastName" type="text" />
+		<label asp-for="Phone">Phone</label>
+		<input asp-for="Phone" type="tel" />
+
+		<select asp-for="RoleId">
+			@foreach(Role role in ViewBag.Roles)
+			{
+				<option value="@role.Id">@role.RoleName</option>
+			}
+		</select>
+
+		<button type="submit">Add User</button>
+		<span asp-validation-for="UserName"></span>
+		<span asp-validation-for="Password"></span>
+		<span asp-validation-for="Email"></span>
+		<span asp-validation-for="FirstName"></span>
+		<span asp-validation-for="LastName"></span>
+		<span asp-validation-for="Phone"></span>
+		<span asp-validation-for="RoleId"></span>
+		@if(ViewBag.Error is not null)
+		{
+			<span>@ViewBag.Error</span>
+		}
+	</form>
+
+
+
+	@section Scripts {
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
+
