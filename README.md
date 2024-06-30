@@ -1,5 +1,11 @@
 # ProjectC
-### A user-management ASP.NET Core Project
+
+## Tech Stack
+
+
+`ASP.NET Core`, `C#`, `SQL Server`, `T-SQL`, `Entity Framework`, `Dapper`
+
+## A user-management ASP.NET Core Project
 
 Contains Two roles: **Admin **and** User**
 
